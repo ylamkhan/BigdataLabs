@@ -2,6 +2,7 @@ package com.bigdata.wordcount;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -25,17 +26,29 @@ public class WordCount {
     public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
 
         private final static IntWritable one = new IntWritable(1);
+        private static final Pattern NON_ALPHANUMERIC = Pattern.compile("[^a-z0-9]");
         private Text word = new Text();
 
         @Override
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             StringTokenizer itr = new StringTokenizer(value.toString());
             while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken().toLowerCase().replaceAll("[^a-z0-9]", ""));
-                if (word.getLength() > 0) {
+                String normalizedWord = normalizeWord(itr.nextToken());
+                if (!normalizedWord.isEmpty()) {
+                    word.set(normalizedWord);
                     context.write(word, one);
                 }
             }
+        }
+
+        /**
+         * Normalizes a word by converting to lowercase and removing non-alphanumeric characters.
+         * 
+         * @param token the input token to normalize
+         * @return the normalized word
+         */
+        private String normalizeWord(String token) {
+            return NON_ALPHANUMERIC.matcher(token.toLowerCase()).replaceAll("");
         }
     }
 
