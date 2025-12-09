@@ -1,0 +1,4 @@
+/home/ylamkhan/BigdataLabs/lab3_mapreduce/src/main/java/edu/ismagi/hadoop/mapreduce/TokenizerMapper.java
+/home/ylamkhan/BigdataLabs/lab3_mapreduce/src/main/java/edu/ismagi/hadoop/mapreduce/Main.java
+/home/ylamkhan/BigdataLabs/lab3_mapreduce/src/main/java/edu/ismagi/hadoop/mapreduce/IntSumReducer.java
+/home/ylamkhan/BigdataLabs/lab3_mapreduce/src/main/java/edu/ismagi/hadoop/mapreduce/WordCount.java
