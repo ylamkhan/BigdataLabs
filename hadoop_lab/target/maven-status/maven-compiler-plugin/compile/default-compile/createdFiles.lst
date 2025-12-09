@@ -1,0 +1,4 @@
+edu/supmti/hadoop/Main.class
+edu/supmti/hadoop/hdfslab/WriteHDFS.class
+edu/supmti/hadoop/hdfslab/ReadHDFS.class
+edu/supmti/hadoop/hdfslab/HadoopFileStatus.class
