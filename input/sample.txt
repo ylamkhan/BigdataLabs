@@ -1,0 +1,5 @@
+Hello World Bye World
+Hello Hadoop Goodbye Hadoop
+Hadoop is a framework for distributed computing
+MapReduce is a programming model for Hadoop
+Big Data processing with Hadoop
